@@ -2,27 +2,48 @@
 title: "ENV S 193DS - Homework 3"
 author: "Andrew Liang"
 date: now
-format: html
+format: pdf
 editor: visual
+toc: true 
+warning: false 
+message: false 
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+# Setup
 
 ```{r}
-1 + 1
+rm(list = ls())
+getwd()
 ```
 
-You can add options to executable code like this
+# Problem 1. Multiple Linear Regression: Model Selection and Construction
 
-```{r}
-#| echo: false
-2 * 2
-```
+## a. 
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## b. 
+
+## c.
+
+## d.
+
+## e.
+
+# Problem 2 - Affective Visualization
+
+## a.
+
+## b. 
+
+## c.
+
+## d.
+
+# Problem 3 - Statistical Critique
+
+## a.
+
+## b. 
+
+## c.
+
+## d.
