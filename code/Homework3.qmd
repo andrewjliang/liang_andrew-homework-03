@@ -9,16 +9,73 @@ warning: false
 message: false 
 ---
 
+## Link to Forked Repository: https://github.com/andrewjliang/liang_andrew-homework-03
+
 # Setup
 
 ```{r}
 rm(list = ls())
 getwd()
+
+library(tidyverse)
+library(readxl)
+library(here)
+library(janitor)
+library(GGally)
+library(MuMIn)
+library(ggeffects)
+library(gtsummary)
+library(flextable)
+library(modelsummary)
+
+drought_exp <- read_xlsx(path = here("data", 
+                                     "Valliere_etal_EcoApps_Data.xlsx"),
+                         sheet = "First Harvest")
+
+drought_exp_clean <- drought_exp %>% 
+  clean_names() %>% # nicer column names
+  mutate(species_name = case_when( # adding column with species scientific names
+    species == "ENCCAL" ~ "Encelia californica", # bush sunflower
+    species == "ESCCAL" ~ "Eschscholzia californica", # California poppy
+    species == "PENCEN" ~ "Penstemon centranthifolius", # Scarlet bugler
+    species == "GRICAM" ~ "Grindelia camporum", # great valley gumweed
+    species == "SALLEU" ~ "Salvia leucophylla", # Purple sage
+    species == "STIPUL" ~ "Nasella pulchra", # Purple needlegrass
+    species == "LOTSCO" ~ "Acmispon glaber" # deerweed
+  )) %>% 
+  relocate(species_name, .after = species) %>% # moving species_name column after species
+  mutate(water_treatment = case_when( # adding column with full treatment names
+    water == "WW" ~ "Well watered",
+    water == "DS" ~ "Drought stressed"
+  )) %>% 
+  relocate(water_treatment, .after = water) # moving water_treatment column after water
 ```
 
 # Problem 1. Multiple Linear Regression: Model Selection and Construction
 
-## a. 
+## a. Table
+
+```{r}
+model0 <- lm(total_g ~ 1, # formula
+             data = drought_exp_clean) # data frame
+model1 <- lm(total_g ~ sla + water_treatment + species_name,
+             data = drought_exp_clean)
+model2 <- lm(total_g ~ sla + water_treatment,
+             data = drought_exp_clean)
+model3 <- lm(total_g ~ sla + species_name,
+             data = drought_exp_clean)
+model4 <- lm(total_g ~ water_treatment + species_name, drought_exp_clean)
+
+modelsummary::modelsummary( # this function takes a list of models
+  list( 
+    "null" = model0, # "model name" = model object
+    "model 1" = model1,
+    "model 2" = model2,
+    "model 3" = model3,
+    "model 4" = model4
+  )
+) 
+```
 
 ## b. 
 
