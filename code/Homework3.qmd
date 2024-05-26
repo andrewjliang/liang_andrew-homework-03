@@ -45,8 +45,8 @@ drought_exp_clean <- drought_exp %>%
   )) %>% 
   relocate(species_name, .after = species) %>% # moving species_name column after species
   mutate(water_treatment = case_when( # adding column with full treatment names
-    water == "WW" ~ "Well watered",
-    water == "DS" ~ "Drought stressed"
+    water == "WW" ~ "Well-Watered",
+    water == "DS" ~ "Drought-Stressed"
   )) %>% 
   relocate(water_treatment, .after = water) # moving water_treatment column after water
 ```
@@ -89,11 +89,17 @@ modelsummary::modelsummary( # this function takes a list of models
 
 ## a.
 
+*My thought for an affective visualization for my data would include some sort of reference to sleep or trying to get on the bus. Many stories often include images of a student missing the bus to school, which I believe could easily be replicated for this project. The main reason I may have trouble getting on the bus is oversleeping or taking too long to prepare for the day.*
+
 ## b. 
 
 ## c.
 
 ## d.
+
+*The Sleeping Man*
+
+*College students often struggle to wake up on time to catch the bus, especially for classes at 8:00 or 9:00 AM. Similarly, a lot of people take the bus to and from school, but find that they may miss the bus by a mere minute because they take too long to prepare for the day or even because the bus arrives a few minutes earlier than usual.*
 
 # Problem 3 - Statistical Critique
 
