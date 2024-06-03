@@ -180,4 +180,6 @@ busdata %>%
 
 ## c.
 
+*For the graphs/figures that WERE in the article, the data:ink ratios were relatively low, and pertinent information was definitely distinguished (for some graphs, the fitted curves were colored while other curves were grayscale). However, the figure where a linear regression model was fitted onto data had all of its data colored with similar tones of green, which could definitely confuse the reader if there was not a legend. Figures where means of groups were compared saw data for those groups distinguished sufficiently, usually through different colors.*
+
 ## d.
