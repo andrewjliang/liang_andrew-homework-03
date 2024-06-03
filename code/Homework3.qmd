@@ -158,7 +158,7 @@ busdata %>%
 
 ## a.
 
-The authors are using t-tests, linear regression, and difference-in-difference models in order to test their hypotheses.
+*The authors are using t-tests, linear regression, and difference-in-difference models in order to test the following questions: whether a retrofit effectively reduced energy consumption in homes, whether differences in energy usage could be seen between subsidized and non-subsidized retrofits, and whether higher amounts of subsidies influenced the difference in energy usage*.
 
 ![T-Test](images/Screenshot 2024-04-24 at 11.37.10 PM-01.png)
 
@@ -176,7 +176,7 @@ The authors are using t-tests, linear regression, and difference-in-difference m
 
 ## b.
 
-*The authors of the paper did not visualize any of their models, except one graph (Figure 6) that seemed to indicate a relationship between the*
+*The authors of the paper did not visualize any of their models, except one graph (Figure 6) that seemed to indicate an inverse relationship between the amount of subsidies given towards a retrofit of a building and changes in a building's energy consumption. Rather, the results of the regression models, t-tests, and difference-in-differences model were all incorporated into the tables above.*
 
 ## c.
 
