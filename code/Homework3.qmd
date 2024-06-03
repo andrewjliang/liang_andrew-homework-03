@@ -77,7 +77,9 @@ modelsummary::modelsummary( # this function takes a list of models
 ) 
 ```
 
-## b. 
+## b. Statistical Methods
+
+We attempted to determine the relationship between the
 
 ## c.
 
