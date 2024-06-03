@@ -73,9 +73,10 @@ selectiontable <- model.sel(model0,
           model3,
           model4)
 
-as_flextable(selectiontable)
-
+selectiontable
 ```
+
+![](images/Screenshot 2024-06-02 at 11.43.45 PM.png)
 
 ## b. Statistical Methods
 
@@ -117,6 +118,10 @@ ggpredict(model4) %>%
 ```
 
 ## d.
+
+Figure 1.
+
+Data source: Can we condition native plants to increase drought tolerance and improve restoration success?, Valliere JM, Zhang J, Sharifi MR, Rundel PW.
 
 ## e.
 
