@@ -74,14 +74,35 @@ modelsummary::modelsummary( # this function takes a list of models
     "model 3" = model3,
     "model 4" = model4
   )
-) 
+)
 ```
 
 ## b. Statistical Methods
 
-We attempted to determine the relationship between the
+```{r fig.width = 12, fig.height = 6, out.width = "90%", fig.align = "center"}
+model.sel(model0,
+          model1, 
+          model2, 
+          model3,
+          model4)
+
+par(mfrow = c(2, 2))
+plot(model4)
+```
+
+We attempted to determine the relationship between the mass of the
+
+In order to choose the most appropriate model, I looked at the Akaike Information Criterion and delta levels for each model. We found that the fifth model was the most appropriate model because it has the lowest AIC and delta AIC. After checking the conditions for linearity (graphs shown above), we found that the assumptions for the multiple linear regression model (no heteroskedasticity,
 
 ## c.
+
+```{r}
+
+geom
+
+ggpredict(model4) %>%
+  plot(show_data = T)
+```
 
 ## d.
 
@@ -91,23 +112,70 @@ We attempted to determine the relationship between the
 
 ## a.
 
-*My thought for an affective visualization for my data would include some sort of reference to sleep or trying to get on the bus. Many stories often include images of a student missing the bus to school, which I believe could easily be replicated for this project. The main reason I may have trouble getting on the bus is oversleeping or taking too long to prepare for the day.*
+*My thought for an affective visualization for my data would include some sort of reference to sleep or trying to get on the bus. The main reason I may have trouble getting on the bus is oversleeping or taking too long to prepare for the day, so I believe that a visualization showing the consequences of doing so would be appropriate for my data. Because my dependent variable is binary (whether I got on the bus), I could create a "road" with the observations that I could include a "bus" on for my art.*
 
 ## b. 
 
+![](images/Draft-2.jpg)
+
 ## c.
+
+```{r}
+setwd("/Users/andrewliang/Desktop/andrew/ENVS-193DS/busdata")
+busdata <- read_csv("BusData.csv") %>%
+  clean_names()
+view(busdata)
+
+busdata %>%
+  ggplot(aes(x = got_on_bus, y = difference_in_wake_up_time_minutes, shape = got_on_bus, color = got_on_bus)) +
+  geom_point(position = position_jitter(width = 0.05), na.rm = T) +
+  labs(title = "Later Wake-Up Times Increase Chances of Missing the Bus", x = "Did Andrew Catch the Bus?", y = "Difference Between Alarm and Wake-Up Time (min)") +
+  theme(text = element_text(size = 13, family = "serif"), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(), 
+        axis.line = element_line(colour = "black"), 
+        plot.title = element_text(hjust=0.5),
+        legend.title = element_blank(),
+        legend.position = "none") + 
+  guides(fill=guide_legend(title="Got on Bus"))
+```
 
 ## d.
 
 *The Sleeping Man*
 
-*College students often struggle to wake up on time to catch the bus, especially for classes at 8:00 or 9:00 AM. Similarly, a lot of people take the bus to and from school, but find that they may miss the bus by a mere minute because they take too long to prepare for the day or even because the bus arrives a few minutes earlier than usual.*
+*College students often struggle to wake up on time to catch the bus, especially for classes at 8:00 or 9:00 AM. Similarly, a lot of people take the bus to and from school, but find that they may miss the bus by a mere minute because they take too long to prepare for the day or even because the bus arrives a few minutes earlier than usual. Based on these facts, I created a visualization that used the binary nature of my dependent variable to act as a "road" for the "bus." This was based off of the*
 
 # Problem 3 - Statistical Critique
 
 ## a.
 
+The authors are using t-tests, linear regression, and difference-in-difference models in order to test their hypotheses.
+
+\![T-Test\](images/Screenshot 2024-04-24 at 11.37.10 PM.png)
+
+
+\![First Linear Regression Model\](images/Screenshot 2024-04-24 at 11.37.43 PM.png)
+
+
+\![Second Linear Regression Model\](images/Screenshot 2024-04-24 at 11.38.21 PM.png)
+
+
+\![Third Linear Regression Model\](images/Screenshot 2024-04-24 at 11.38.56 PM.png)
+
+
+\![Fourth Linear Regression Model Table\](images/Screenshot 2024-04-24 at 11.42.32 PM.png)
+
+
+\![Fifth Linear Regression Model\](images/Screenshot 2024-04-24 at 11.42.58 PM.png)
+
+
+\![Difference-in-Difference Model Results\](images/Screenshot 2024-04-24 at 11.43.52 PM.png)
+
 ## b. 
+
+*The authors of the paper were able to visually*
 
 ## c.
 
