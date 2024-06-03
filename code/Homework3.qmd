@@ -132,8 +132,8 @@ busdata %>%
   geom_vline(xintercept = 1, linewidth = 2, alpha = 0.3) +
   geom_vline(xintercept = 1.5, linewidth = 3, linetype = "dashed", color = "yellow3") +
   geom_vline(xintercept = 2, linewidth = 2, alpha = 0.3) +
-  annotate("rect", xmin = 1.1, xmax = 1.3, ymin = -43, ymax = -10, fill = "aquamarine") +
-  annotate("rect", xmin = 1.6, xmax = 1.8, ymin = -8, ymax = 30, fill = "aquamarine") +
+  annotate("rect", xmin = 1.15, xmax = 1.35, ymin = -43, ymax = -10, fill = "red") +
+  annotate("rect", xmin = 1.73, xmax = 1.93, ymin = -8, ymax = 30, fill = "aquamarine") +
   annotate("rect", xmin = 1, xmax = 2, ymin = -50, ymax = 150, alpha = 0.3, fill = "darkgray") +
   theme(text = element_text(size = 13, family = "serif"), 
         panel.grid.major = element_blank(), 
@@ -148,9 +148,9 @@ busdata %>%
 
 ## d.
 
-*The Sleeping Man*
+*The Bus Stop*
 
-*College students often struggle to wake up on time to catch the bus, especially for classes at 8:00 or 9:00 AM. Similarly, a lot of people take the bus to and from school, but find that they may miss the bus by a mere minute because they take too long to prepare for the day or even because the bus arrives a few minutes earlier than usual. Based on these facts, I created a visualization that used the binary nature of my dependent variable to act as a "road" for the "bus." This was based off of the*
+*College students often struggle to wake up on time to catch the bus, especially for classes at 8:00 or 9:00 AM. Similarly, a lot of people take the bus to and from school, but find that they may miss the bus by a mere minute because they take too long to prepare for the day or even because the bus arrives a few minutes earlier than usual. Based on these facts, I created a visualization that used the binary nature of my dependent variable to act as a "road" for the "buses," illustrated by the rectangles in the middle of the road. This was based off of the*
 
 # Problem 3 - Statistical Critique
 
@@ -158,19 +158,19 @@ busdata %>%
 
 The authors are using t-tests, linear regression, and difference-in-difference models in order to test their hypotheses.
 
-![T-Test](images/Screenshot%202024-04-24%20at%2011.37.10%20PM.png)
+![T-Test](images/Screenshot 2024-04-24 at 11.37.10 PM-01.png)
 
-\![First Linear Regression Model\](images/Screenshot 2024-04-24 at 11.37.43 PM.png)
+![First Linear Regression Model](images/Screenshot 2024-04-24 at 11.37.43 PM.png)
 
-\![Second Linear Regression Model\](images/Screenshot 2024-04-24 at 11.38.21 PM.png)
+![Second Linear Regression Model](images/Screenshot 2024-04-24 at 11.38.21 PM.png)
 
-\![Third Linear Regression Model\](images/Screenshot 2024-04-24 at 11.38.56 PM.png)
+![Third Linear Regression Model](images/Screenshot 2024-04-24 at 11.38.56 PM.png)
 
-\![Fourth Linear Regression Model Table\](images/Screenshot 2024-04-24 at 11.42.32 PM.png)
+![Fourth Linear Regression Model](images/Screenshot 2024-04-24 at 11.42.32 PM.png)
 
-\![Fifth Linear Regression Model\](images/Screenshot 2024-04-24 at 11.42.58 PM.png)
+![Fifth Linear Regression Model](images/Screenshot 2024-04-24 at 11.42.58 PM.png)
 
-\![Difference-in-Difference Model Results\](images/Screenshot 2024-04-24 at 11.43.52 PM.png)
+![Difference-in-Differences Model](images/Screenshot 2024-04-24 at 11.43.52 PM.png)
 
 ## b.
 
