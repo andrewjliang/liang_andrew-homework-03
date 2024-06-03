@@ -2,7 +2,7 @@
 title: "ENV S 193DS - Homework 3"
 author: "Andrew Liang"
 date: now
-format: html
+format: docx
 editor: visual
 toc: true 
 warning: false 
@@ -112,9 +112,23 @@ We attempted to determine the relationship between the total biomass based off o
 ## c.
 
 ```{r}
+drought_exp_clean %>%
+ggplot(aes(x = water_treatment, y = total_g, group = water_treatment, color = water_treatment)) +
+  geom_point() +
+  facet_wrap(~species_name) +
+  theme_classic() +
+  stat_summary(FUN = mean_cl_normal) +
+  theme(text = element_text(size = 13, family = "serif"), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(), 
+        axis.line = element_line(colour = "black"), 
+        plot.title = element_text(hjust=0.5),
+        legend.title = element_blank(),
+        legend.position = "none")
 
 ggpredict(model4) %>%
-  plot(show_data = T)
+  plot(show_data = T) 
 ```
 
 ## d.
