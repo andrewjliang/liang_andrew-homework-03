@@ -83,7 +83,7 @@ selectiontable
 ```{r fig.width = 12, fig.height = 6, out.width = "90%", fig.align = "center"}
 #| fig-height: 8
 #| fig-width: 8
-model.sel(model0,
+model.sel(model0, # checking models from above for AIC and Delta. 
           model1, 
           model2, 
           model3,
@@ -100,14 +100,14 @@ ggpairs(drought_exp_clean, # data frame
   theme(panel.grid = element_blank()) # getting rid of gridlines
 
 
-vif(model4)
+vif(model4) # Verifying VIF of predictor variables. 
 
 
 par(mfrow = c(2, 2))
-plot(model4)
+plot(model4) # checking residuals. 
 ```
 
-We attempted to determine the relationship between the total biomass based off of three variables: the tyep of species, whether the area was treated with water, and the specific leaf area. In order to choose the most appropriate model, I looked at the Akaike Information Criterion and delta levels for each model. We found that the fifth model (model4), where we regressed total mass on water treatment and species was the most appropriate model because it has the lowest AIC and delta AIC. After checking the conditions for linearity (graphs shown above), we found that the assumptions for the multiple linear regression model (no heteroskedasticity, relatively normal residuals, no patterns in residuals versus leverage) were met, and thus concluded that our fifth model was the most appropriate model.
+We attempted to determine the relationship between the total biomass based off of three variables: the tyep of species, whether the area was treated with water, and the specific leaf area. In order to choose the most appropriate model, I looked at the Akaike Information Criterion and delta levels for each model. We found that the fifth model (model4), where we regressed total mass on water treatment and species was the most appropriate model because it has the lowest AIC and delta AIC. After checking the conditions for linearity (graphs shown above), we found that the assumptions for the multiple linear regression model (no heteroskedasticity, relatively normal residuals, no patterns in residuals versus leverage) were met, and thus concluded that our fifth model was the most appropriate model, and total mass was the better dependent variable.
 
 ## c.
 
