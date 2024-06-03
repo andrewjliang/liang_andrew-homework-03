@@ -90,7 +90,7 @@ par(mfrow = c(2, 2))
 plot(model4)
 ```
 
-We attempted to determine the relationship between the mass of the
+We attempted to determine the relationship between the total biomass based off of three variables: the tyep of species, whether the area was treated with water, and the specific leaf area.
 
 In order to choose the most appropriate model, I looked at the Akaike Information Criterion and delta levels for each model. We found that the fifth model was the most appropriate model because it has the lowest AIC and delta AIC. After checking the conditions for linearity (graphs shown above), we found that the assumptions for the multiple linear regression model (no heteroskedasticity,
 
@@ -126,15 +126,17 @@ view(busdata)
 
 busdata %>%
   ggplot(aes(x = got_on_bus, y = difference_in_wake_up_time_minutes, shape = got_on_bus, color = got_on_bus)) +
-  geom_point(position = position_jitter(width = 0.05), size = 2, na.rm = T) +
-  labs(title = "Later Wake-Up Times Increase Chances of Missing the Bus", x = "Did Andrew Catch the Bus?", y = "Difference Between Alarm and Wake-Up Time (min)") +
-  scale_y_continuous(expand = c(0, 0)) +
-  geom_vline(xintercept = 1, linewidth = 2, alpha = 0.3) +
-  geom_vline(xintercept = 1.5, linewidth = 3, linetype = "dashed", color = "yellow3") +
-  geom_vline(xintercept = 2, linewidth = 2, alpha = 0.3) +
-  annotate("rect", xmin = 1.15, xmax = 1.35, ymin = -43, ymax = -10, fill = "red") +
-  annotate("rect", xmin = 1.73, xmax = 1.93, ymin = -8, ymax = 30, fill = "aquamarine") +
-  annotate("rect", xmin = 1, xmax = 2, ymin = -50, ymax = 150, alpha = 0.3, fill = "darkgray") +
+  geom_point(position = position_jitter(width = 0.05), size = 2, na.rm = T, alpha = 0.5) + # Adding points based on whether Andrew got on the bus. Shapes and color differ. Points where the estimated bus time is unavailable are removed.  
+  labs(title = "Later Wake-Up Times Increase Chances of Missing the Bus", x = "Did Andrew Catch the Bus?", y = "Difference Between Alarm and Wake-Up Time (min)") + # adding titles
+  scale_y_continuous(expand = c(0, 0)) + # making sure that the graph starts at 0
+  geom_vline(xintercept = 1, linewidth = 2, alpha = 0.3) + # first road line
+  geom_vline(xintercept = 1.5, linewidth = 3, linetype = "dashed", color = "yellow3") + # median line for the road.
+  geom_vline(xintercept = 2, linewidth = 2, alpha = 0.3) + # second road line
+  annotate("rect", xmin = 1.15, xmax = 1.35, ymin = -43, ymax = -5, fill = "red") + # this rectangle represents the buses that drive away with those who miss it (points in red).
+  annotate("rect", xmin = 1.73, xmax = 1.93, ymin = -8, ymax = 30, fill = "aquamarine") + # this "bus" is at the bus stop where on-time passengers are present.
+  annotate("rect", xmin = 1, xmax = 2, ymin = -50, ymax = 150, alpha = 0.3, fill = "darkgray") + # road texture
+  stat_summary(fun.data = mean_cl_normal,
+               geom = "pointrange", size = 1) +
   theme(text = element_text(size = 13, family = "serif"), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
@@ -150,7 +152,7 @@ busdata %>%
 
 *The Bus Stop*
 
-*College students often struggle to wake up on time to catch the bus, especially for classes at 8:00 or 9:00 AM. Similarly, a lot of people take the bus to and from school, but find that they may miss the bus by a mere minute because they take too long to prepare for the day or even because the bus arrives a few minutes earlier than usual. Based on these facts, I created a visualization that used the binary nature of my dependent variable to act as a "road" for the "buses," illustrated by the rectangles in the middle of the road. This was based off of the*
+*This visualization displays data indicating the amount of time used to prepare each day versus whether Andrew was able to make it to the bus, based off of a model road and "buses" on both sides of the road. The image represents data points where Andrew did not catch the bus as people who miss the bus (the red rectangle) because they are late, while the data points where Andrew was able to catch the bus represent the people who are able to get on the bus (aquamarine rectangle) on time. Jill Pelto's paintings influenced my decision to incorporate the data within the image itself. I created my image through R and ggplot; I used various line and rectangle geoms in order to create the road and the "buses," while the data and confidence interval for means were directly added to the roads.*
 
 # Problem 3 - Statistical Critique
 
@@ -174,7 +176,7 @@ The authors are using t-tests, linear regression, and difference-in-difference m
 
 ## b.
 
-*The authors of the paper were able to visually*
+*The authors of the paper did not visualize any of their models, except one graph (Figure 6) that seemed to indicate a relationship between the*
 
 ## c.
 
