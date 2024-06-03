@@ -2,7 +2,7 @@
 title: "ENV S 193DS - Homework 3"
 author: "Andrew Liang"
 date: now
-format: pdf
+format: html
 editor: visual
 toc: true 
 warning: false 
@@ -98,8 +98,6 @@ In order to choose the most appropriate model, I looked at the Akaike Informatio
 
 ```{r}
 
-geom
-
 ggpredict(model4) %>%
   plot(show_data = T)
 ```
@@ -114,7 +112,7 @@ ggpredict(model4) %>%
 
 *My thought for an affective visualization for my data would include some sort of reference to sleep or trying to get on the bus. The main reason I may have trouble getting on the bus is oversleeping or taking too long to prepare for the day, so I believe that a visualization showing the consequences of doing so would be appropriate for my data. Because my dependent variable is binary (whether I got on the bus), I could create a "road" with the observations that I could include a "bus" on for my art.*
 
-## b. 
+## b.
 
 ![](images/Draft-2.jpg)
 
@@ -128,8 +126,15 @@ view(busdata)
 
 busdata %>%
   ggplot(aes(x = got_on_bus, y = difference_in_wake_up_time_minutes, shape = got_on_bus, color = got_on_bus)) +
-  geom_point(position = position_jitter(width = 0.05), na.rm = T) +
+  geom_point(position = position_jitter(width = 0.05), size = 2, na.rm = T) +
   labs(title = "Later Wake-Up Times Increase Chances of Missing the Bus", x = "Did Andrew Catch the Bus?", y = "Difference Between Alarm and Wake-Up Time (min)") +
+  scale_y_continuous(expand = c(0, 0)) +
+  geom_vline(xintercept = 1, linewidth = 2, alpha = 0.3) +
+  geom_vline(xintercept = 1.5, linewidth = 3, linetype = "dashed", color = "yellow3") +
+  geom_vline(xintercept = 2, linewidth = 2, alpha = 0.3) +
+  annotate("rect", xmin = 1.1, xmax = 1.3, ymin = -43, ymax = -10, fill = "aquamarine") +
+  annotate("rect", xmin = 1.6, xmax = 1.8, ymin = -8, ymax = 30, fill = "aquamarine") +
+  annotate("rect", xmin = 1, xmax = 2, ymin = -50, ymax = 150, alpha = 0.3, fill = "darkgray") +
   theme(text = element_text(size = 13, family = "serif"), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
@@ -153,27 +158,21 @@ busdata %>%
 
 The authors are using t-tests, linear regression, and difference-in-difference models in order to test their hypotheses.
 
-\![T-Test\](images/Screenshot 2024-04-24 at 11.37.10 PM.png)
-
+![T-Test](images/Screenshot%202024-04-24%20at%2011.37.10%20PM.png)
 
 \![First Linear Regression Model\](images/Screenshot 2024-04-24 at 11.37.43 PM.png)
 
-
 \![Second Linear Regression Model\](images/Screenshot 2024-04-24 at 11.38.21 PM.png)
-
 
 \![Third Linear Regression Model\](images/Screenshot 2024-04-24 at 11.38.56 PM.png)
 
-
 \![Fourth Linear Regression Model Table\](images/Screenshot 2024-04-24 at 11.42.32 PM.png)
-
 
 \![Fifth Linear Regression Model\](images/Screenshot 2024-04-24 at 11.42.58 PM.png)
 
-
 \![Difference-in-Difference Model Results\](images/Screenshot 2024-04-24 at 11.43.52 PM.png)
 
-## b. 
+## b.
 
 *The authors of the paper were able to visually*
 
